@@ -55,10 +55,12 @@ def main():
         }
         output.append(fileEntry)
         
-    with open("results.json", "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=4)
+    jsonOutput = json.dumps(output, ensure_ascii=False, indent=4)
+    print(jsonOutput)
 
-    print(output)
+    with open("results.json", "w", encoding="utf-8") as f:
+        f.write(jsonOutput)
+    
         
 
 
