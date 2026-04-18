@@ -22,7 +22,7 @@ def parseFiles(fileName):
             }
             adapters.append(current_adapter)
             continue
-        if " : " in stripped:
+        if " : " in line:
             parts = stripped.split(":", 1)
             key = parts[0].replace(".", "").strip().lower()
             value = parts[1].strip().split("(")[0].strip()
@@ -57,6 +57,8 @@ def main():
         
     with open("results.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=4)
+
+    print(output)
         
 
 
