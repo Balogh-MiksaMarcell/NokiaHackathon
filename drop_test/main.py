@@ -16,8 +16,15 @@ def min_num_of_drops(devices, height):
     return attempts
 
 def main():
-    data = Path("input.txt").read_text(encoding="utf-8")
-    print(data, end="")
+    data = Path("input.txt").read_text(encoding="utf-8").splitlines()
+    for line in data:
+        parts = line.strip().split(',')
+
+        n = int(parts[0].strip())
+        h = int(parts[1].strip())
+
+        print(min_num_of_drops(n,h))
+    
 
 
 if __name__ == "__main__":
