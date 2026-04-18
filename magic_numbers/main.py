@@ -25,8 +25,19 @@ def next_magic_number(number):
     return nextNum
 
 def main():
-    data = Path("input.txt").read_text(encoding="utf-8")
-    print(data, end="")
+    data = Path("input.txt").read_text(encoding="utf-8").splitlines()
+    
+    for line in data: 
+        stripped = line.strip()
+        if stripped: 
+            if "^" in stripped:
+                base, index = stripped.split("^")
+                number = pow(int(base), int(index))
+            else:
+                number = int(stripped)
+            
+            print(next_magic_number(number))
+
 
 
 if __name__ == "__main__":
